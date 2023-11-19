@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+</head>
+<body>
+<p>
+    {% if context_owner %}
+        <a href="/new_establishment">Add a new Establishment</a>
+    {% endif %}
+</p>
+<form action="/welcome" method="get">
+    <label>
+        Establishment Name:
+        <input type="text" name="establishmentName">
+    </label>
+    <p>
+        <label>
+            <input type="checkbox" checked="" name="covid"> Sanitary compliant
+        </label>
+    </p>
+
+    <p>
+        <input type="submit" value="Search">
+    </p>
+
+</form>
+<p>
+<table>
+    <tr>
+        <th>name</th>
+        <th>Covid conform</th>
+    </tr>
+    {% for establishment in establishments %}
+        <tr>
+            <td>{{ establishment.name }}</td>
+            <td>{{ establishment.covid_hygiene }}</td>
+            <td><a class="btn btn-primary" href="/reservation/{{ establishment.id }}">Make a reservation !</a></td>
+        </tr>
+    {% empty %}
+        <p>No establishment found.</p>
+    {% endfor %}
+</table>
+</p>
+</body>
+</html>

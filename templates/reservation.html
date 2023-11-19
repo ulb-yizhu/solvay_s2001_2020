@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Make a reservation</title>
+</head>
+<body>
+{% if sorry %}
+    <p>{{ sorry }}</p>
+{% endif %}
+<form action="/reservation/{{ establishment_id }}" method="get">
+        {{ reservationForm }}
+    <p><input type="submit" value="send reservation !"></p>
+</form>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Encode a new establishment</title>
+</head>
+<body>
+    {% if error_form %}
+    <p>{{ error_form }}</p>
+    {% endif %}
+     <form action="/new_establishment" method="get">
+        {{ establishmentForm }}
+    <p><input type="submit" value="Register!"></p>
+</form>
+
+</body>
+</html>
